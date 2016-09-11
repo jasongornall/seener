@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script>
+      (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <link type="text/css" rel="stylesheet" href="stylesheets/main.css">
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -16,10 +25,10 @@
         <div class = "center-y text-center">
             <div class = "title"> CHELSEA SEENER, SOPRANO </div>
             <div class = "desktop-nav">
-                <span class = "home link" data-type = "text"> Home </span>
-                <span class = "resume link"> R&#232;sum&#232; </span>
-                <span class = "news link"> UPCOMING NEWS AND PERFORMANCES </span>
-                <span class = "media link"> media </span>
+                <span data-link = "home" class = "link" data-type = "text"> Home </span>
+                <span data-link = "resume" class = "link"> R&#232;sum&#232; </span>
+                <span data-link = "news" class = "link"> UPCOMING NEWS AND PERFORMANCES </span>
+                <span data-link = "media" class = "link"> media </span>
             </div>
         </div>
 
